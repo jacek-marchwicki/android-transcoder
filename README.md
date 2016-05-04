@@ -6,12 +6,20 @@ Hardware accelerated transcoder for Android, written in pure Java.
 [![Build Status](https://travis-ci.org/jacek-marchwicki/android-transcoder.svg?branch=master)](https://travis-ci.org/jacek-marchwicki/android-transcoder)
 [![Release](https://jitpack.io/v/jacek-marchwicki/android-transcoder.svg)](https://jitpack.io/#jacek-marchwicki/android-transcoder)
 
+## Why?
+
+Android does not offer straight forward way to transcode video.
+
+FFmpeg is the most famous solution for transcoding. But using [FFmpeg binary on Android](https://github.com/WritingMinds/ffmpeg-android) can cause GPL and/or patent issues. Also using native code for Android development can be troublesome because of cross-compiling, architecture compatibility, build time and binary size.
+
+To transcode without any hassle written above, I created this library to provide hardware accelerated transcoding of H.264 (mp4) video without ffmpeg by using [MediaCodec](https://developer.android.com/intl/ja/reference/android/media/MediaCodec.html).
+
 ## Requirements
 
 API Level 18 (Android 4.3, JELLY_BEAN_MR2) or later.
 If your app targets older Android, you should add below line to AndroidManifest.xml:
 
-```
+```xml
 <!-- Only supports API >= 18 -->
 <uses-sdk tools:overrideLibrary="net.ypresto.androidtranscoder" />
 ```
@@ -72,7 +80,7 @@ Use [qtfaststart-java](https://github.com/ypresto/qtfaststart-java) to place moo
 ## License
 
 ```
-Copyright (C) 2014-2015 Yuya Tanaka
+Copyright (C) 2014-2016 Yuya Tanaka
 Copyright (C) 2016 Jacek Marchwicki <jacek.marchwicki@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
